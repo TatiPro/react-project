@@ -1,0 +1,30 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  padding-bottom: 3em;
+  align-items: center;
+  button {
+    border: none;
+    padding: 4px 10px;
+    border-radius: 2em;
+    cursor: pointer;
+  }
+}
+
+.link {
+  color: var(--theme-text);
+  text-decoration: none;
+}
+
+.switch-theme {
+  margin-left: auto;
+}
+.my_name {
+  background-image: linear-gradient(
+    90deg,
+    rgb(153, 37, 176),
+    rgb(39, 206, 156)
+  );
+  cursor: default !important;
+}

@@ -1,0 +1,22 @@
+p {
+  color: var(--theme-text);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 30em;
+  gap: 0.1em;
+}
+form input {
+  padding: 0.4em;
+}
+.comment {
+  border: 1px solid var(--theme-text);
+  border-radius: 2em;
+  padding: 1em;
+  width: 28em;
+  h2 {
+    margin: 5px;
+  }
+}
