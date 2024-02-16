@@ -33,7 +33,7 @@ const StyledButton = styled(Button)`
   }
 `;
 
-const LIMIT_LIST_PRODUCTS = 10; //максимальное колво продуктов
+const LIMIT_LIST_PRODUCTS = 10; 
 
 const Catalog = () => {
   const [page, setPage] = useState<number>(1);
