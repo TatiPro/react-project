@@ -12,7 +12,6 @@ export interface IMyForm {
 }
 const Form = () => {
   const [data, setData] = useState<IMyForm>();
-  const [tasks, setTasks] = useState<IMyForm[]>([]);
 
   const {
     register,
@@ -102,21 +101,11 @@ const Form = () => {
               document={<PdfDocument email={data?.email} text={data?.text} title={data?.title} image={data?.image} />}
               fileName="file.pdf"
             >
-              {({ blob, url, loading, error }) => (loading ? "Загрузка..." : "Скачать")}
+              {({ loading }) => (loading ? "Загрузка..." : "Скачать")}
             </PDFDownloadLink>
           )}
         </div>
       </form>
-      {tasks.map((task, i) => (
-        <p className="comment">
-          <h2>Пост {i + 1}</h2>
-          Название - {task.title}
-          <br />
-          Текст - {task.text}
-          <br />
-          Email - {task.email}
-        </p>
-      ))}
     </>
   );
 };

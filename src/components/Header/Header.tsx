@@ -2,13 +2,7 @@ import { NavLink } from "react-router-dom";
 import "./Header.css";
 import { useState } from "react";
 
-const Header = ({
-  isAuth,
-  setIsAuth,
-}: {
-  isAuth: boolean;
-  setIsAuth: (val: boolean) => void;
-}) => {
+const Header = ({ isAuth, setIsAuth }: { isAuth: boolean; setIsAuth: (val: boolean) => void }) => {
   const [theme, setTheme] = useState("light");
 
   const changeTheme = () => {
@@ -41,11 +35,7 @@ const Header = ({
           Форма
         </NavLink>
         <button onClick={authButton}>{isAuth ? "Выйти" : "Войти"}</button>
-        {isAuth && (
-          <button className="my_name">
-            Кретинина Татьяна Сергеевна 221-322
-          </button>
-        )}
+        {isAuth && <button className="my_name">Кретинина Татьяна Сергеевна 221-322</button>}
         <button className="switch-theme" onClick={changeTheme}>
           Сменить тему на {theme == "dark" ? "светлую" : "темную"}
         </button>

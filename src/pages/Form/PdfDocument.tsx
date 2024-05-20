@@ -1,11 +1,4 @@
-import {
-  Document,
-  Image,
-  Page,
-  Text,
-  View,
-  StyleSheet,
-} from "@react-pdf/renderer";
+import { Document, Image, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
 import { FC } from "react";
 import { IMyForm } from "./Form";
 const styles = StyleSheet.create({
@@ -35,9 +28,7 @@ export const PdfDocument: FC<IMyForm> = ({ email, text, title, image }) => {
         <View style={styles.section}>
           <Text>title: {title}</Text>
         </View>
-        <View style={styles.section}>
-          {image && <Image source={image[0]} />}
-        </View>
+        <View style={styles.section}>{image && <Image source={image[0]} />}</View>
       </Page>
     </Document>
   );
