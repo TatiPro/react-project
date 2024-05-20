@@ -86,7 +86,7 @@ const Form = () => {
           type="file"
           accept="image/*"
           {...register("image", {
-            required: "Обязательно для заполнения",
+            required: "Поле обязательно для заполнения",
           })}
         />
         <div className={errors.image ? "show" : "hide"}>

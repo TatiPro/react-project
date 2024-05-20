@@ -1,6 +1,6 @@
-import { Form, RouteObject, useRoutes } from "react-router-dom";
+import { RouteObject, useRoutes } from "react-router-dom";
 import { CATALOG_ROUTE, FORM_ROUTE, MAIN_ROUTE, PROFILE_ROUTE } from "./config";
-import React, { useState } from "react";
+import React from "react";
 import Catalog from "../pages/Catalog/Catalog";
 import Main from "../pages/Main/Main";
 import Profile from "../pages/Profile/Profile";
@@ -16,9 +16,7 @@ const MainRoutes: React.FC<IMainRoutes> = ({ isAuth, setIsAuth }) => {
     { path: CATALOG_ROUTE, element: <Catalog /> },
     { path: FORM_ROUTE, element: <MyForm /> },
   ];
-  const authPath: RouteObject[] = [
-    { path: PROFILE_ROUTE, element: <Profile /> },
-  ];
+  const authPath: RouteObject[] = [{ path: PROFILE_ROUTE, element: <Profile /> }];
 
   const resultPath: RouteObject[] = basedPath;
 

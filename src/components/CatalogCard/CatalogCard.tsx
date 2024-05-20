@@ -7,7 +7,7 @@ export const CatalogCard: FC<Omit<Product, "key">> = ({ category, description, p
   return (
     <div className={`catalog-card__wrapper ${inView ? "card-show" : ""}`} ref={ref}>
       <h3>{id}</h3>
-      <div className="catalog-card__container">
+      <div data-testid="card" className="catalog-card__container">
         <div className="catalog-card__content">
           <h2 className={`${inView ? "card-title" : ""}`}>{title}</h2>
           <h3>
