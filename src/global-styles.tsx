@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
     :root {
@@ -8,18 +8,22 @@ const GlobalStyles = createGlobalStyle`
         --theme-text: var(--invert);
 	}
     body {
+        transition: 0.15s;
         background-color: var(--theme);
     }
     html[data-theme=light] {
 	    --theme: white;
         --invert: black;
     }
+    body *{
+        transition: 0.15s;
 
+    }
     html[data-theme=dark] {
 		--theme: black;
         --invert: white;
     }
 
-`
+`;
 
 export default GlobalStyles;
