@@ -1,30 +1,31 @@
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import "./Form.css";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import { PdfDocument } from "./PdfDocument";
 
-//модуль 5 - форма
-
+export interface IMyForm {
+  title: string;
+  text: number;
+  email: string;
+  image: FileList;
+}
 const Form = () => {
-  interface IMyForm {
-    title: string;
-    text: number;
-    email: string;
-  }
-
+  const [data, setData] = useState<IMyForm>();
   const [tasks, setTasks] = useState<IMyForm[]>([]);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm<IMyForm>({
     mode: "onBlur",
   });
 
   const saveElement: SubmitHandler<IMyForm> = (data) => {
-    setTasks((prev) => [...prev, data]);
-    reset();
+    // setTasks((prev) => [...prev, data]);
+    // reset();
+    setData(data);
   };
 
   return (
@@ -46,7 +47,7 @@ const Form = () => {
           })}
           placeholder="название"
         />
-        <div>
+        <div className={errors.title ? "show" : "hide"}>
           <p>{errors.title?.message}</p>
         </div>
         <input
@@ -59,7 +60,7 @@ const Form = () => {
           })}
           placeholder="текст"
         />
-        <div>
+        <div className={errors.text ? "show" : "hide"}>
           <p>{errors.text?.message}</p>
         </div>
 
@@ -78,11 +79,33 @@ const Form = () => {
           })}
           placeholder="email"
         />
-        <div>
+        <div className={errors.email ? "show" : "hide"}>
           <p>{errors.email?.message}</p>
         </div>
+        <input
+          style={{ border: "none" }}
+          type="file"
+          accept="image/*"
+          {...register("image", {
+            required: "Обязательно для заполнения",
+          })}
+        />
+        <div className={errors.image ? "show" : "hide"}>
+          <p>{errors.image?.message}</p>
+        </div>
 
-        <button type="submit">Сохранить</button>
+        <div className="buttons-wrapper">
+          <button type="submit">Сохранить</button>
+          {!!data?.email && !!data.text && !!data.title && (
+            <PDFDownloadLink
+              className="download-button"
+              document={<PdfDocument email={data?.email} text={data?.text} title={data?.title} image={data?.image} />}
+              fileName="file.pdf"
+            >
+              {({ blob, url, loading, error }) => (loading ? "Загрузка..." : "Скачать")}
+            </PDFDownloadLink>
+          )}
+        </div>
       </form>
       {tasks.map((task, i) => (
         <p className="comment">
