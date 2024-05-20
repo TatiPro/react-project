@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import "./Header.css";
 import { useState } from "react";
 
-const Header: React.FC = ({ isAuth, setIsAuth }) => {
+const Header = ({ isAuth, setIsAuth }: { isAuth: boolean; setIsAuth: (val: boolean) => void }) => {
   const [theme, setTheme] = useState("light");
 
   const changeTheme = () => {
