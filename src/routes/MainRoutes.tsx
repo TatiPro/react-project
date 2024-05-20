@@ -6,8 +6,11 @@ import Main from "../pages/Main/Main";
 import Profile from "../pages/Profile/Profile";
 import MyForm from "../pages/Form/Form";
 // Маршрутизация (модуль 3)
-
-const MainRoutes: React.FC = ({ isAuth, setIsAuth }) => {
+interface IMainRoutes {
+  isAuth: boolean;
+  setIsAuth: (val: boolean) => void;
+}
+const MainRoutes: React.FC<IMainRoutes> = ({ isAuth, setIsAuth }) => {
   const basedPath: RouteObject[] = [
     { path: MAIN_ROUTE, element: <Main /> },
     { path: CATALOG_ROUTE, element: <Catalog /> },
