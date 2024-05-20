@@ -14,12 +14,15 @@ const GlobalStyles = createGlobalStyle`
     html[data-theme=light] {
 	    --theme: white;
         --invert: black;
+         
+        --alternate-color:#cbcbe5; 
     }
     body *{
         transition: 0.15s;
-
+        
     }
     html[data-theme=dark] {
+        --alternate-color:#535386; 
 		--theme: black;
         --invert: white;
     }

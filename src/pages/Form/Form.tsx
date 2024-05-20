@@ -27,7 +27,7 @@ const Form = () => {
     // reset();
     setData(data);
   };
-  //модуль 1
+
   return (
     <>
       <h1>Это форма</h1>

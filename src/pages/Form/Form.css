@@ -9,6 +9,7 @@ form {
   gap: 0.3em;
 }
 form input {
+  border-radius: 8px;
   padding: 0.4em;
 }
 .comment {
@@ -48,11 +49,7 @@ form input {
   border-radius: 15px;
   text-decoration: none;
   color: var(--theme);
-  background-image: linear-gradient(
-    90deg,
-    rgb(153, 37, 176),
-    rgb(39, 206, 156)
-  );
+  background-image: linear-gradient(90deg, rgb(153, 37, 176), rgb(39, 206, 156));
   cursor: pointer !important;
   border: 1px solid var(--theme);
   transition: 0.5s;

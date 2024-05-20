@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
 });
-//модуль 1
+
 export const PdfDocument: FC<IMyForm> = ({ email, text, title, image }) => {
   return (
     <Document>
