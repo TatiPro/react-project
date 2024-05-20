@@ -1,0 +1,50 @@
+.catalog-card__wrapper {
+  display: grid;
+  grid-template-columns: 1fr 10fr;
+  background-color: var(--alternate-color);
+  padding: 10px;
+  border-radius: 8px;
+}
+.catalog-card__content {
+  display: flex;
+  flex-direction: column;
+}
+.catalog-card__info {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+.card-title {
+  position: relative;
+}
+.card-title::after {
+  content: "";
+  bottom: -8px;
+  left: 0;
+  position: absolute;
+  background-color: black;
+  height: 2px;
+  animation: 0.2s underlineShow forwards;
+}
+@keyframes underlineShow {
+  from {
+    width: 0;
+  }
+  to {
+    width: 600px;
+  }
+}
+
+.card-show {
+  animation: 0.44s cardShow forwards;
+}
+@keyframes cardShow {
+  from {
+    opacity: 0.4;
+    transform: translateX(-35px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
